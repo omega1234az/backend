@@ -5,6 +5,10 @@ const authMiddleware = require('../../middleware/auth');
 
 // ดึงโพสต์ทั้งหมด
 router.get('/', postsController.getAllPosts);
+router.post('/save/:id',authMiddleware, postsController.savePost);
+router.get('/category/:categoryId', postsController.getPostsByCategory);
+router.get('/subcategory/:subcategoryId', postsController.getPostsBySubcategory);
+router.get('/search/:query', postsController.searchPosts);
 
 // ดึงโพสต์โดย ID
 router.get('/:id', postsController.getPostById);
